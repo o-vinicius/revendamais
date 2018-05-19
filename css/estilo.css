@@ -2,7 +2,7 @@
 CORES
 VERMELHOR = #ec4848
 PRETO = #273043
-AZUL = 52658d
+AZUL = #52658d
 */
 
 body {
@@ -13,10 +13,13 @@ body {
     margin: 0;
     background-color: #fff;
     line-height: 1.35;
+    letter-spacing: -0.01rem;
+    overflow-x: hidden;
 }
 
 h2 {
     font-size: 32px;
+    font-weight: 400;
 }
 h2.size-jumbo {
     font-size: 52px;
@@ -30,8 +33,10 @@ h2.title::after {
     height: 3px;
     background-color: #ec4848;
 }
+
 h3 {
     font-size: 18px;
+    font-weight: 400;
 }
 h3.size-jumbo {
     font-size: 24px;
@@ -39,6 +44,7 @@ h3.size-jumbo {
 h3.title-desc {
     margin-bottom: 70px;
 }
+
 
 a {
     transition: all 0.2s ease;
@@ -52,6 +58,7 @@ strong {
 }*/
 img {
     max-width: 100%;
+    height: auto;
 }
 
 section {
@@ -64,6 +71,10 @@ section {
 }
 .desktop-view {
     display: inherit;
+}
+
+.parallax-inner {
+    background-attachment: fixed;
 }
 
 [class*=col-].align-middle {
@@ -132,19 +143,27 @@ section {
     color: #fff;
     padding-top: 60px;
     padding-bottom: 60px;
+    background-repeat: no-repeat;
 }
 .cta .row {
     position: relative;
 }
-.cta h2 {
+.cta h2:not(.title) {
     font-size: 30px;
     margin-bottom: 1.35em;
     padding-right: 0;
+}
+.cta h2.title::after {
+    background-color: #fff;
 }
 .cta h3 {
     font-size: 22px;
     padding-right: 0;
     margin-bottom: 80px
+}
+.cta h3.title-desc {
+    font-size: 18px;
+    font-weight: 400;
 }
 .cta .seal.mobile-view {
     display: none;
@@ -264,17 +283,17 @@ header .sub-header {
     width: 100%;
     padding-top: 15px;
 }
-header .sub-header .nav-menu {
+.nav-menu {
     width: 100%;
     padding: 0;
     margin: 0;
     display: flex;
     justify-content: space-between;
 }
-header .sub-header .nav-menu li {
+.nav-menu li {
     list-style: none;
 }
-header .sub-header .nav-menu li a {
+.nav-menu li a {
     font-size: 16px;
     color: #273043;
 }
@@ -284,6 +303,7 @@ header .sub-header .nav-menu li a {
     position: relative;
     padding-top: 170px;
     padding-bottom: 150px;
+    background-position: center center;
 }
 .hero::after {
     content: '';
@@ -432,6 +452,7 @@ header .sub-header .nav-menu li a {
 }
 #aplicativo-mobile {
     background-image: url(../images/funcionalidades-item-bg-mobile.jpg);
+    background-size: auto calc(100% - 80px);
 }
 .func-item::after {
     content: '';
@@ -542,6 +563,7 @@ header .sub-header .nav-menu li a {
     text-align: center;
     text-transform: uppercase;
     padding: 20px;
+    margin-bottom: 0;
 }
 .col-4.plan-item.best-seller h3 {
     padding-top: 19px;
@@ -550,12 +572,12 @@ header .sub-header .nav-menu li a {
     box-shadow: 0 13px 29px rgba(236,187,187,0.23);
 }
 
-.col-4.plan-item ul {
+.plan-item ul {
     width: 60%;
-    margin: 40px auto;
-    padding: 0;
+    margin: 30px auto;
+    padding: 10px 0;
 }
-.col-4.plan-item ul li {
+.plan-item ul li {
     color: #52658d;
     list-style: none;
     padding-left: 30px;
@@ -565,22 +587,29 @@ header .sub-header .nav-menu li a {
     background-size: 20px auto;
     margin-bottom: 15px;
 }
-.col-4.plan-item.best-seller ul li {
+.plan-item ul li:last-child {
+    margin-bottom: 0;
+}
+.plan-item.best-seller ul li,
+.col-12.plan-item ul li {
     background-image: url(../images/icon-check-red.png);
 }
-.col-4.plan-item .price {
+.plan-item .price {
     width: 190px;
-    margin: 0 auto;
     text-align: center;
-    border-top: 2px solid #52658d;
-    padding: 40px 0;
     font-size: 24px;
     font-weight: 700;
+    line-height: 1;
 }
-.col-4.plan-item .price strong {
+.col-4.plan-item .price {
+    padding: 40px 0;
+    border-top: 2px solid #52658d;
+    margin: 0 auto;
+}
+.plan-item .price strong {
     font-size: 48px;
 }
-.col-4.plan-item .price span {
+.plan-item .price span {
     font-weight: 400;
     display: block;
 }
@@ -596,6 +625,15 @@ header .sub-header .nav-menu li a {
     color: #52658d;
     font-size: 14px;
 }
+.col-12.plan-item p {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    color: #52658d;
+}
+.col-12.plan-item ul {
+    border-right: 2px solid #ec4848;
+    padding-left: 15px;
+}
 .col-12.plan-item h3 {
     text-transform: none;
     font-size: 32px;
@@ -606,11 +644,198 @@ header .sub-header .nav-menu li a {
     padding-right: 0;
 }
 
+.plan-item.notice {
+    background-color: #f3e8e8;
+    border: 2px solid #ec4847;
+    padding: 25px 0;
+}
+.plan-item.notice img {
+    width: 52px;
+    height: auto;
+}
+.plan-item.notice p:last-child {
+    margin-bottom: 0;
+}
+
+#alem {
+    padding: 0;
+}
+#alem::before,
+#alem::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 76px;
+}
+#alem::before {
+    background-image: url(../images/cta-04-bg-top.png);
+    margin-bottom: 40px;
+    transform: translateY(-1px);
+}
+#alem::after {
+    background-image: url(../images/cta-04-bg-bottom.png);
+    margin-top: 40px;
+    transform: translateY(1px);
+}
+#alem h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+#alem .site-item {
+    margin-bottom: 40px;
+}
+#alem .col-7 img {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+    max-width: none;
+}
+#alem .btn-type-2 {
+    background-image: linear-gradient(to top, #212121, #373737);
+    box-shadow: 0 4px rgba(0,0,0,0.1), 0 0 30px rgba(0,0,0,0);
+}
+
+#motivos {
+    padding-bottom: 0;
+}
+.circle-text-inline {
+    margin-bottom: 30px;
+}
+.circle-text-inline h3 {
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    border-radius: 100px;
+    background-color: #ec4848;
+    color: #fff;
+    text-align: center;
+    font-size: 32px;
+    margin: 0;
+}
+.circle-text-inline .text {
+    padding-top: 8px;
+}
+.circle-text-inline .text p:last-child {
+    margin-bottom: 0;
+}
+
+
+.accordion h3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px;
+    font-style: italic;
+    color: #52658d;
+    padding: 0 100px 0 40px;
+    border: 1px solid #b7cece;
+    border-radius: 5px;
+    background-color: #f2f3f4;
+    height: 5rem;
+    margin-bottom: 1rem;
+}
+.accordion h3::after {
+    content: '';
+    position: absolute;
+    right: 40px;
+    top: calc(50% - 8px);
+    width: 30px;
+    height: 17px;
+    background-image: url(../images/arrow-accordion.png);
+    background-size: 100% 100%;
+    transition: all 0.4s ease;
+}
+.accordion h3.active::after {
+    transform: translateY(10px);
+}
+.accordion div {
+    display: none;
+    padding: 0 40px 20px;
+}
+
+footer {
+    background-color: #303030;
+    padding-top: 140px;
+    padding-bottom: 60px;
+    color: #fff;
+}
+footer .container {
+    position: relative;
+}
+footer .logo {
+    position: absolute;
+    top: -100px;
+    left: 15px;
+}
+footer .logo a {
+    display: block;
+    width: 198px;
+    height: 28px;
+    font-size: 0;
+    background-image: url(../images/revendamais-logo-branca-2@.png);
+    background-size: 100% 100%;
+}
+footer h2 {
+    color: #ec4848;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 1.35rem;
+}
+footer p {
+    font-size: 17px;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+}
+footer .nav-menu {
+    margin-top: 30px;
+}
+footer .nav-menu li a {
+    color: #fff;
+}
+footer .col-5 div {
+    display: flex;
+}
+footer .col-5 div a {
+    color: #fff;
+    font-weight: 400;
+}
+.nav-social {
+    padding: 0;
+    margin-bottom: 30px;
+    display: flex;
+}
+.nav-social li {
+    list-style: none;
+    margin-right: 20px;
+}
+.nav-social li a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #ec4848;
+    border-radius: 100px;
+    color: #303030;
+    font-size: 22px;
+}
+.nav-social li a:hover {
+    text-decoration: none;
+}
+
 @media (max-width: 576px) {
     .mobile-view {
         display: inherit;
     }
     .desktop-view {
         display: none;
+    }
+    [class*=col] {
+        width: 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 }
