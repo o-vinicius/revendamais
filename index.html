@@ -11,11 +11,13 @@
     <link href="css/bootstrap-grid.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="js/assets/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="js/assets/owl.theme.default.css" rel="stylesheet" type="text/css">
     <link href="css/estilo.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.2.min.js"></script>
     <script src="js/parallax.js"></script>
     <script src="js/scrollreveal.js"></script>
-    
+    <script src="js/owl.carousel.js"></script>    
 </head>
 <body>
     <header>
@@ -26,6 +28,7 @@
                 </div>
                 <div class="col-9 text-right login">
                 	<span>Já é cliente? <a href="">Login</a></span>
+                    <div class="menu-mobile mobile-view"><i class="fas fa-bars"></i></div>
                 </div>
             </div>
             <div class="row sub-header">
@@ -116,7 +119,7 @@
             </div>
         </div>
     </section>
-    <section class="cta parallax-window" data-image-src="images/cta-01-bg.jpg">
+    <section class="cta parallax-window desktop-view" data-image-src="images/cta-01-bg.jpg">
         <div class="container">
             <div class="row">
                 <h2 class="col-7">Se você não <strong>entrar em contato hoje</strong> com o Revenda Mais, amanhã seu negócio continuará tendo os mesmos <u>problemas de ineficiência e desorganização</u> no seu estoque e documentos.</h2>
@@ -138,7 +141,7 @@
             </div>
         </div>
     </section>
-    <section id="veja">
+    <section id="veja" class="desktop-view">
         <div class="container">
             <div class="row">
                 <h2 class="title col-12 mx-auto text-center">Veja se o cenário abaixo de alguma forma remete à sua loja de veículos <u>hoje:</u></h2>
@@ -187,7 +190,7 @@
             </div>
         </div>
     </section>
-    <section id="tudo-isso">
+    <section id="tudo-isso" class="desktop-view">
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -204,10 +207,10 @@
     <section id="hora">
         <div class="container">
             <div class="row">
-                <h2 class="title col-10 mx-auto text-center">Os números do Revenda Mais provam porque somos a melhor escolha para a sua loja de veículos.</h2>
+                <h2 class="title col-10 mx-auto text-center">A hora de mudar a realidade da sua loja de veículos é <strong>AGORA.</strong></h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-9 mx-auto text-center">Há 14 anos no mercado, o Revenda Mais é um parceiro confiável e duradouro das lojas de veículos que querem continuar crescendo por muito tempo.</h3>
+                <h3 class="title-desc col-9 mx-auto text-center"><strong>O Revenda Mais é um sistema de gestão completo para lojas de veículos</strong> 100% online, desenvolvido para que você volte a ter o controle dos processos do seu negócio, melhore a produtividade dos seus funcionários e ultrapasse os seus concorrentes na conquista de novos clientes.</h3>
             </div> 
             <div class="row list-box-ok">
                 <div class="col-6">
@@ -249,7 +252,7 @@
             </div>
         </div>
     </section>
-    <section class="cta parallax-window" data-image-src="images/cta-02-bg.jpg">
+    <section class="cta parallax-window desktop-view" data-image-src="images/cta-02-bg.jpg">
         <div class="container">
             <div class="row">
                 <h2 class="col-7"><strong>Otimize o seu tempo</strong> e tenha todas as informações da sua loja de veículos organizadas e integradas em um <u>sistema de gestão completo.</u></h2>
@@ -276,6 +279,14 @@
             <div class="row">
                 <h2 class="title col-12 mx-auto text-center">Conheça as <strong>principais funcionalidades do sistema de gestão do Revenda Mais,</strong> desenvolvido <u>exclusivamente para lojas de veículos.</u></h2>
             </div>
+            <div class="row">
+                <select>
+                    <option value="emissao-nota-fiscal-eletronica">Emissão de Nota Fiscal Eletrônica</option>
+                    <option value="integrador-anuncios-veiculos">Integrador de Anúncios de Veículos</option>
+                    <option value="armazenamento-documentos-digitalizados">Armazenamento de Documentos Digitalizados</option>
+                    <option value="aplicativo-mobile">Aplicativo Mobile</option>
+                </select>
+            </div>
         </div>
         <div id="emissao-nota-fiscal-eletronica"  class="container-fluid func-item">
             <div class="container">
@@ -290,6 +301,9 @@
                         <h3>Emissão de Nota Fiscal Eletrônica</h3>
                         <p>Com poucos cliques você <strong>emite notas fiscais</strong> (com os cálculos de impostos automatizados), gera a Danfe e ainda não corre o risco de perder o arquivo XML, pois guardamos os arquivos para você com total segurança. Nosso sistema ainda valida as informações antes de enviar a NF-e para o SEFAZ.</p>
                         <p class="more"><a href="#">Saiba Mais ></a></p>
+                    </div>
+                    <div class="func-image">
+                        <img src="images/funcionalidades-item-bg.jpg" />
                     </div>
                     <div class="col-7">
                         <div class="testimonial">
@@ -323,6 +337,9 @@
                         <p>Integrador de Anúncios de Veículos Com apenas 1 clique você publica seu estoque de veículos nos principais portais como <strong>OLX, Webmotors, SóCarrão, iCarros, MeuCarroNovo, Mercado Livre, Facebook e mais de 20 outras opções.</strong> Assim, você centraliza seus anúncios e decide em quais portais deseja publicar, diminuindo erros e economizando tempo.</p>
                         <p class="more"><a href="#">Saiba Mais ></a></p>
                     </div>
+                    <div class="func-image">
+                        <img src="images/funcionalidades-item-bg.jpg" />
+                    </div>
                     <div class="col-7">
                         <div class="testimonial">
                             <div class="image">
@@ -354,6 +371,9 @@
                         <h3>Armazenamento de Documentos Digitalizados</h3>
                         <p><strong>Arquive e controle imagens</strong> que você fizer de DUT (ou CRV), CNH, contratos, comprovantes ou armazene documentos importantes do dia a dia de qualquer negociação. Além de guardar documentos com segurança você também poderá enviar por e-mail e <strong>encontrar tudo de maneira simples e rápida.</strong></p>
                         <p class="more"><a href="#">Saiba Mais ></a></p>
+                    </div>
+                    <div class="func-image">
+                        <img src="images/funcionalidades-item-bg.jpg" />
                     </div>
                     <div class="col-7">
                         <div class="testimonial">
@@ -387,6 +407,9 @@
                         <p>Pelo nosso <strong>aplicativo exclusivo</strong> você vai controlar os principais módulos do sistema como Estoque, Clientes, Atendimento e Avaliação. Você também conseguirá cadastrar veículos, tirar as fotos e enviar para o sistema. Tudo pelo celular, sem computador, de qualquer lugar.</p>
                         <p class="more">Se você quer ver o nosso sistema de gestão funcionando no seu celular, seja IOS ou Android, <strong>baixe gratuitamente agora:</strong></p>
                         <p><a href="#" target="_blank"><img src="images/link-android.png" /></a> <a href="#" target="_blank"><img src="images/link-ios.png" /></a></p>
+                    </div>
+                    <div class="func-image">
+                        <img src="images/funcionalidades-item-bg-mobile.gif" />
                     </div>
                     <div class="col-7">
                         <div class="testimonial">
@@ -443,8 +466,8 @@
             <div class="row">
                 <h3 class="title-desc col-9 mx-auto text-center">Os nossos representantes estão à disposição para te ajudar na <strong>escolha do plano ideal para a realidade da sua loja de veículos.</strong> Mas você pode ir se familiarizando com eles na tabela abaixo:</h3>
             </div>
-            <div class="row plans">
-                <div class="col-4 plan-item">
+            <div class="row plans owl-carousel owl-theme">
+                <div class="plan-item item">
                     <h3>Básico</h3>
                     <ul>
                         <li>2 Usuários</li>
@@ -458,7 +481,7 @@
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
-                <div class="col-4 plan-item best-seller">
+                <div class="plan-item best-seller item">
                     <span class="notice">Mais vendido</span>
                     <h3>BRONZE</h3>
                     <ul>
@@ -473,7 +496,7 @@
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
-                <div class="col-4 plan-item">
+                <div class="plan-item item">
                     <h3>Prata</h3>
                     <ul>
                         <li>2 Usuários</li>
@@ -493,7 +516,7 @@
                     <h3>Você precisa de um plano <strong>apenas para emissão de NF-e?</strong></h3>
                     <div class="row no-gutters">
                         <div class="col-4 offset-2">
-                            <p>Por apenas R$ 49,00 mensais você poderá realizar a emissão de Notas Fiscais Eletrônicas.</p>
+                            <p>Por <strong>apenas R$ 49,00 mensais</strong> você poderá realizar a emissão de Notas Fiscais Eletrônicas.</p>
                             <div class="row">
                                 <ul class="col">
                                     <li>2 Usuários</li>
@@ -552,7 +575,7 @@
                         <p>A plataforma suporta a inclusão de várias lojas e/ou filiais, permitindo a seleção no filtro lateral.</p>
                     </div>
                 </div>
-                <div class="col-7 align-self-center">
+                <div class="col-7 align-self-center desktop-view">
                     <img src="images/cta-04-img.png" class="image" />
                 </div>
             </div>
@@ -725,12 +748,12 @@
                     <p>E-mail: contato@revendamais.com.br</p>
                     <p>Horário de Funcionamento: segunda à sexta - 09h às 12h - 13h às 18h</p>
                     <ul class="nav-menu">
-                        <li><a href="#">Revenda Mais</a></li>
-                        <li><a href="#">Benefícios</a></li>
-                        <li><a href="#">Funcionalidades</a></li>
-                        <li><a href="#">Planos</a></li>
-                        <li><a href="#">Dúvidas</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="#revendamais">Revenda Mais</a></li>
+                        <li><a href="#beneficios">Benefícios</a></li>
+                        <li><a href="#funcionalidades">Funcionalidades</a></li>
+                        <li><a href="#planos">Planos</a></li>
+                        <li><a href="#duvidas">Dúvidas</a></li>
+                        <li><a href="/blog">Blog</a></li>
                     </ul>
                 </div>
                 <div class="col-5 offset-1">
@@ -752,23 +775,41 @@
     </footer>
 </body>
 <script>
-	$('a[href*="#"]:not([href="#"])').click(function() {
-		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-			var target = $(this.hash);
-			target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-			if (target.length) {
-				$('html, body').animate({
-					scrollTop: target.offset().top
-				}, 900, "swing");
-				return false;
-			}
-		}
-	});
     
+    $('.menu-mobile').click(function(){
+        $('header .sub-header .col-6').toggleClass('active');
+    });
+    $('header .sub-header .col-6 a').click(function(){
+        $('header .sub-header .col-6').toggleClass('active');
+    });
+    
+    
+    
+    
+        $('a[href*="#"]:not([href="#"])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+                if (target.length && $(window).width() > 768) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 900, "swing");
+                    return false;
+                } if (target.length && $(window).width() <= 768){
+                    $('html, body').animate({
+                        scrollTop: target.offset().top - 68
+                    }, 900, "swing");
+                    return false;
+                }
+            }
+        });
+
     // JavaScript
     window.sr = ScrollReveal();
     sr.reveal('#tudo-isso .container');
     sr.reveal('[class*=col]');
+    sr.reveal('.func-image');
+
 
     $('.parallax-window').parallax();
     /*$('.parallax-window').parallaxBackground({
@@ -788,5 +829,35 @@
         //Hide the other panels
         $(".accordion div").not($(this).next()).slideUp('slow');
     });
+    
+    
+    $('.owl-carousel').owlCarousel({
+        startPosition:1,
+        nav:false,
+        responsive:{
+            0:{
+                items:1,
+                margin:10
+            },
+            600:{
+                items:2,
+                margin:10
+            },
+            1000:{
+                margin:0,
+                items:3
+            }
+        }
+    });
+    
+    $('.container-fluid.func-item').fadeOut()
+    $('#emissao-nota-fiscal-eletronica').fadeIn()
+    
+    $('select').change(function() {
+        var idselecao = $(this).val();
+        $('.container-fluid.func-item').fadeOut()
+        $('#' + idselecao).fadeIn()
+    });
+
 </script>
 </html>
