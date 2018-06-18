@@ -8,6 +8,10 @@ AZUL = #52658d
 *:focus {
     outline: none!important;
 }
+html,
+body {
+    overflow-x: hidden;
+}
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -17,9 +21,10 @@ body {
     background-color: #fff;
     line-height: 1.35;
     letter-spacing: -0.01rem;
-    overflow-x: hidden;
 }
-
+body.fancybox-active {
+    margin-right: 0;
+}
 h2 {
     font-size: 32px;
     font-weight: 400;
@@ -76,13 +81,24 @@ section {
     display: inherit;
 }
 
-.parallax-window {
-    transform-style: preserve-3d;
-}
-
 [class*=col-].align-middle {
     display: flex;
     align-items: center;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9 url(../images/load.gif) no-repeat center center;
+    z-index: 9999;
+    transition: all 0.5s ease;
+}
+#loader.carregado {
+    opacity: 0;
+    visibility: hidden;
 }
 
 .btn {
@@ -96,13 +112,15 @@ section {
     box-shadow: none;
 }
 .btn-type-1 {
-    margin-right: 20px;
-    padding: 10px 18px;
+    margin-right: 15px;
+    padding: 10px 15px;
     border: 2px solid #ec4848;
-    display: block;
+    display: flex;
     width: 50%;
     font-size: 14px;
     color: #ec4848;
+    align-items: center;
+    justify-content: center;
 }
 .btn-type-1:hover {
     background-color: #ec4848;
@@ -112,10 +130,8 @@ section {
     margin-right: 0px;
 }
 
-.btn-cta {
-    display: table-caption;
-}
 .btn-type-2 {
+    display: block;
     font-size: 18px;
     color: #fff;
     background-image: linear-gradient(to top, #e73635, #f15a59);
@@ -141,12 +157,24 @@ section {
 }
 
 
-
+.parallax-window {
+    top: 0;
+    height: 100%;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 .cta {
+    position: relative;
     color: #fff;
     padding-top: 60px;
     padding-bottom: 60px;
     background-repeat: no-repeat;
+    overflow: hidden;
+}
+.cta a,
+footer p a {
+    color: #fff!important;
 }
 .cta .row {
     position: relative;
@@ -175,7 +203,7 @@ section {
     display: block;
 }
 .cta .btn-type-2 {
-    padding: 25px 60px;
+    padding: 25px 20px;
     display: block;
     font-size: 23px;
 }
@@ -213,6 +241,8 @@ section {
 .testimonial .image img {
     border-radius: 300px;
     border: 3px solid #52658d;
+    width: 80%;
+    max-width: 220px;
 }
 .testimonial .text {
     width: 60%;
@@ -240,8 +270,67 @@ section {
     font-size: 16 px;
 }
 
+.fancybox-slide > div {
+    max-width: 1110px;
+    background-color: #f2f3f4;
+    padding: 65px;
+}
+.fancybox-slide > div h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 50px;
+}
 
-header {
+#form {
+    max-width: 540px;
+}
+#form h2 {
+    color: #52658d;
+    margin-bottom: 25px;
+}
+#form div {
+    font-size: 0;
+}
+#form label {
+    font-size: 14px;
+    font-style: italic;
+    color: #52658d;
+    display: block;
+    margin: 25px 0 5px;
+}
+#form input {
+    width: 100%;
+    font-size: 14px;
+    font-style: italic;
+    border: none;
+    border-radius: 5px;
+    height: 33px;
+    background-color: #fff;
+    padding: 0 10px;
+    display: inline-block;
+    outline: none!important;
+    box-shadow: none!important;
+}
+#form input#ddd {
+    width: 65px;
+    margin-right: 30px;
+}
+#form input#celular {
+    width: 160px;
+}
+#form .btn-cta {
+    margin-top: 45px;
+    display: block;
+}
+#form .btn-cta .btn {
+    width: 100%;
+}
+#form .btn-cta small {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+header.header {
     width: 100%;
     position: relative;
     z-index: 2;
@@ -257,35 +346,48 @@ header [class*=col-] {
 header [class*=col-].text-right {
     justify-content: flex-end;
 }
-header .header {
+header.header .row {
     height: 68px;
 }
-header .header .logo {
+header.header .logo {
     margin: 0;
     font-size: 0;
 }
-header .header .logo a {
+header.header .logo a {
     display: block;
     width: 192px;
     height: 27px;
     background-image: url(../images/revendamais-logo-2@.png);
     background-size: 100%;
 }
-header .header .login * {
+header.header .login * {
     color: #ec4848;
 }
-header .header .login a {
+header.header .login a {
     font-weight: 700;
     text-decoration: underline;
 }
-header .header .login a:hover {
+header.header .login a:hover {
     color: #273043;
 }
-header .sub-header {
+.nav-menu-mobile {
+    display: none;
+}
+header.sub-header {
     position: absolute;
-    top: 100%;
+    top: 68px;
     width: 100%;
-    padding-top: 15px;
+    padding: 15px 0;
+    z-index: 3;
+    transition: background-color 0.3s ease;
+}
+header.sub-header.sticky {
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+}
+header.sub-header .col-5 {
+    align-items: normal;
 }
 .nav-menu {
     width: 100%;
@@ -301,6 +403,9 @@ header .sub-header {
     font-size: 16px;
     color: #273043;
 }
+/*.nav-menu li a.active {
+    font-weight: bold;
+}*/
 
 
 .hero {
@@ -446,6 +551,9 @@ header .sub-header {
 #funcionalidades h2.title::after {
     margin-bottom: 0;
 }
+#funcionalidades select {
+    display: none;
+}
 .func-item {
     padding-top: 80px;
     padding-bottom: 100px;
@@ -470,9 +578,6 @@ header .sub-header {
     height: 3px;
     background-color: #ec4848;
 }
-.func-item:last-of-type::after {
-    display: none;
-}
 .func-item ul li {
     list-style: none;
 }
@@ -495,6 +600,9 @@ header .sub-header {
 .func-item ul li a.active {
     background-color: #ec4848;
     color: #fff;
+}
+.func-item ul li a.active {
+    cursor: default!important;
 }
 .func-item .col-5 h3 {
     font-weight: 700;
@@ -549,7 +657,7 @@ header .sub-header {
 .plan-item {
     background-color: #f2f3f4;
     border: 1px solid #b7cece;
-    padding: 0 0 20px;
+    padding: 0 0 20px!important;
 }
 .item.plan-item.best-seller {
     background-color: #f3e8e8;
@@ -636,7 +744,6 @@ header .sub-header {
     padding: 0 15px;
 }
 .plan-item .btn-type-2 {
-    white-space: normal;
     padding: 18px 20px;
     font-size: 16px;
 }
@@ -666,7 +773,7 @@ header .sub-header {
 .plan-item.notice {
     background-color: #f3e8e8;
     border: 2px solid #ec4847;
-    padding: 25px 0;
+    padding: 25px 0!important;
 }
 .plan-item.notice img {
     width: 52px;
@@ -682,13 +789,15 @@ header .sub-header {
 #alem::before,
 #alem::after {
     content: '';
+    position: relative;
+    z-index: 2;
     display: block;
     width: 100%;
     height: 76px;
 }
 #alem::before {
     background-image: url(../images/cta-04-bg-top.png);
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     transform: translateY(-1px);
 }
 #alem::after {
@@ -711,8 +820,9 @@ header .sub-header {
     transform: translateY(-50%);
     max-width: none;
 }
-#alem .btn-type-2 {
-    background-image: linear-gradient(to top, #212121, #373737);
+#alem .btn-type-2,
+#alem .btn-type-2:active {
+    background-image: linear-gradient(to top, #212121, #373737)!important;
     box-shadow: 0 4px rgba(0,0,0,0.1), 0 0 30px rgba(0,0,0,0);
 }
 
@@ -840,65 +950,91 @@ footer .col-5 div a {
     width: 40px;
     height: 40px;
     background-color: #ec4848;
+    border: 2px solid #ec4848;
     border-radius: 100px;
     color: #303030;
     font-size: 22px;
 }
 .nav-social li a:hover {
     text-decoration: none;
+    background-color: transparent;
+    color: #fff;
 }
 
+@media (max-width: 1199px) {
+    .sub-header .col-5 {
+        margin-left: 0;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
 @media (max-width: 1024px) {
-
+    .plan-item .btn-type-2 {
+        white-space: normal;
+        display: block;
+    }
+    .plan-item .btn-cta {
+        display: block;
+    }
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     header .col-3 {
         width: 70%;
         flex: 0 0 70%;
         max-width: 70%;
     }
-    header .header {
+    header.header {
         left: 0;
         margin: 0;
         position: fixed;
         width: 100%;
+        z-index: 4;
+        box-shadow: 0 0 30px rgba(0,0,0,0.1);
+    }
+    header.header .row {
+        position: relative;
         z-index: 3;
         background-color: #fff;
     }
-    header .sub-header {
+    header.sub-header,
+    header.sub-header.sticky {
+        position: absolute!important;
         top: 68px;
+        box-shadow: none;
+        background-color: transparent;
     }
-    header .sub-header .col-6 {
+    header.header .nav-menu-mobile {
+        display: block;
         position: fixed;
         top: 68px;
-        left: 0;
+        left: 50%;
         z-index: 2;
         opacity: 1!important;
         width: 100%;
-        max-width: 100%;
-        transform: translateY(-100%)!important;
+        max-width: 720px;
+        transform: translate(-50%, -100%)!important;
         background-color: #ec4848;
         transition: all 0.3s ease;
     }
-    header .sub-header .col-6.active {
-        transform: translateY(0%)!important;
+    header.header .nav-menu-mobile.active {
+        transform: translate(-50%, 0%)!important;
     }
-    header .sub-header .col-5 {
+    header.sub-header .col-5 {
         width: 100%;
         max-width: 100%;
         flex: 0 0 100%;
         margin: 0;
     }
-    header .sub-header .nav-menu {
+    header.header .nav-menu {
         flex-wrap: wrap;
-        padding: 20px 0;
+        padding: 20px;
     }
-    header .sub-header .nav-menu li {
+    header.header .nav-menu li {
         width: 100%;
         text-align: right;
         margin: 10px 0;
     }
-    header .sub-header .nav-menu li a {
+    header.header .nav-menu li a {
         color: #fff;
     }
     header .col-9 {
@@ -922,6 +1058,9 @@ footer .col-5 div a {
     }
     header [class*=col-].text-right {
         justify-content: center;
+    }
+    header.sub-header .col-6 {
+        display: none;
     }
     .btn-type-1 {
         font-size: 16px;
@@ -1127,6 +1266,11 @@ footer .col-5 div a {
     }
 }
 
+@media (max-width: 768px) {
+    header.header .nav-menu-mobile {
+        max-width: 540px;
+    }
+}
 @media (max-width: 576px) {
     body {
         font-size: 16px;
@@ -1145,6 +1289,8 @@ footer .col-5 div a {
         width: 100%;
         flex: 0 0 100%;
         max-width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     [class*=offset] {
         margin-left: 0;
@@ -1162,7 +1308,7 @@ footer .col-5 div a {
     }
     .btn-type-1 {
         font-size: 12px;
-        width: auto;
+        width: 50%;
         margin-right: 10px;
         padding: 10px;
     }
@@ -1181,6 +1327,15 @@ footer .col-5 div a {
     .btn-cta small {
         padding: 15px 20px 0;
     }
+    .fancybox-slide > div {
+        padding: 15px;
+    }
+    #form input#ddd {
+        width: 55px;
+    }
+    #form input#celular {
+        width: calc(100% - 45px - 40px)
+    }
     .cta .row {
         font-size: 0;
         display: block;
@@ -1190,7 +1345,7 @@ footer .col-5 div a {
     }
     .cta h2:not(.title) {
         font-size: 21px;
-        padding-right: 15px;
+        padding-right: 20px;
     }
     .cta h3:not(.title-desc) {
         display: inline-block;
@@ -1237,7 +1392,7 @@ footer .col-5 div a {
         width: 160px;
     }
     .testimonial .text {
-        padding: 15px 15px 0;
+        padding: 15px 20px 0;
     }
 
     .hero {
@@ -1291,7 +1446,7 @@ footer .col-5 div a {
         border: none;
         border-radius: 5px;
         padding: 20px 50px 20px 15px;;
-        width: calc(100% - 30px);
+        width: calc(100% - 40px);
         display: block;
         margin: 40px auto 0;
         -moz-appearance: none;
@@ -1332,7 +1487,6 @@ footer .col-5 div a {
     .func-item .col-7 .testimonial .text {
         font-size: 16px;
         width: 100%;
-        padding: 15px 15px 0;
     }
     .func-item .col-7 .testimonial .text::before {
         margin-top: 0;
@@ -1371,7 +1525,7 @@ footer .col-5 div a {
         max-width: 100%;
     }
     #alem h3 {
-        padding-right: 15px;
+        padding-right: 20px;
     }
     #alem .col-5 {
         width: 100%;
@@ -1380,6 +1534,6 @@ footer .col-5 div a {
     }
 
     footer .btn-type-1 {
-        width: 100%;
+        width: calc(100% - 30px);
     }
 }

@@ -13,16 +13,142 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="js/assets/owl.carousel.css" rel="stylesheet" type="text/css">
     <link href="js/assets/owl.theme.default.css" rel="stylesheet" type="text/css">
+    <link href="js/assets/jquery.fancybox.min.css" rel="stylesheet" />
     <link href="css/estilo.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.2.min.js"></script>
-    <script src="js/parallax.js"></script>
+    <script src="js/jquery.enllax.js"></script>
     <script src="js/scrollreveal.js"></script>
-    <script src="js/owl.carousel.js"></script>    
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/lazyload.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
 </head>
 <body>
-    <header>
+    <div id="loader"></div>
+    <div style="display: none;" id="form">
+        <h2></h2>
+        <form>
+            <input name="local" type="text" hidden="" />
+            <input name="assunto" type="text" hidden="" />
+            <div>
+                <label>Nome (Obrigatório):</label>
+                <input name="nome" type="text" placeholder="Digite seu nome completo" required />
+            </div>
+            <div>
+                <label>Telefone Celular (Obrigatório):</label>
+                <input id="ddd" name="ddd" type="text" placeholder="(__)" required pattern="\([0-9]{2}\)[\s][0-9]{4,5}-[0-9]{4}" />
+                <input id="celular" name="celular" type="text" placeholder="_____-____" pattern="\([0-9]{2}\)[\s][0-9]{4,5}-[0-9]{4}" required />
+                <script type="text/javascript">
+                    $("#ddd").mask("(00)");
+                    $("#celular").mask("00000-0009");
+                </script>
+            </div>
+            <div>
+                <label>E-mail para Contato (Obrigatório):</label>
+                <input name="email" type="email" placeholder="Digite seu e-mail" required />
+            </div>
+            <div class="btn-cta">
+                <button type="submit" class="btn btn-type-2"></button>
+                <small></small>
+            </div>
+        </form>
+    </div>
+    <div style="display: none;" id="emissao-nf">
         <div class="container">
-            <div class="row header">
+            <h2>Emissão de Nota Fiscal Eletrônica NF-e</h2>
+            <div class="row list-box-ok">
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Flexibilidade</h3>
+                        <p>Comece a emitir NF-e na sua revenda de veículos e consultar as notas fiscais de qualquer computador. Não fique dependente de certificados digitais de cartão que obrigam a emissão de notas fiscais de apenas um computador.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Você só paga o que usar</h3>
+                        <p>Independente do plano contratado para a sua revenda de veículos você poderá emitir notas fiscais de acordo com a sua necessidade. Você pagará somente por aquilo que usar, apenas R$1,10 por nota fiscal gerada.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Armazenamento</h3>
+                        <p>Armazenamos as informações da notas fiscais e o arquivo XML em nosso sistema. A qualquer momento você poderá consultar notas, salvar o XML, imprimir Danfes e até mesmo exportar as informações para o seu contador.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Validação de notas</h3>
+                        <p>Nosso sistema está preparado para atender ao rígido padrão exigido pela Receita Estadual na criação e envio dos arquivos. Fazemos uma validação minuciosa para reduzir os erros e problemas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" id="integrador-anuncios">
+        <div class="container">
+            <h2>Integrador de Anúncios de Veículos</h2>
+            <div class="row list-box-ok">
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Economize trabalho</h3>
+                        <p>Nosso software replica os anúncios em diversos sites. Você aproveita o cadastro do seu estoque e publica em vários portais de uma só vez, economizando tempo e gerando mais vendas.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Evite erros</h3>
+                        <p>Nosso integrador de sites valida as informações necessárias para cada site auxiliando suas publicações e minimizando impactos não desejados. Evite riscos de publicar dados errados ou esquecer de publicar em algum site.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Venda mais rápido</h3>
+                        <p>Integração do seu estoque de veículos com + de 20 portais. Além de publicar seus anúncios nos principais sites como OLX, Webmotors, SóCarrão, iCarros, Meu Carro Novo e Facebook, publicamos também em vários sites gratuitos, aumentando suas chances de vender.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Anúncios atualizados</h3>
+                        <p>Seu estoque sempre estará atualizado. Nosso software de integração de anúncios monitora vários portais, publicando conforme sua seleção e removendo automaticamente os veículos vendidos no controle de estoque.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display: none;" id="armazenamento-documentos">
+        <div class="container">
+            <h2>Armazenamento de Documentos Digitalizados</h2>
+            <div class="row list-box-ok">
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Fim do envelope</h3>
+                        <p>Guardamos tudo para você com cópia no Brasil e EUA! Não fique refém de envelopes que guardam os documentos de cada veículo e cliente. Diminua a quantidade de papel em sua revenda de veículos, economizando tempo, espaço e dinheiro.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Fácil acesso</h3>
+                        <p>Tenha acesso a todos os documentos que você guardou! Basta pesquisar o veículo ou o cliente para encontrar por exemplo: DUTs, comprovantes, decalques de chassi, consultas de Detran, cópia de RG, CPF, comprovantes, etc.</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Envio por email</h3>
+                        <p>Além de ser fácil localizar o documento que precisa, você pode compartilhar enviando o mesmo diretamente para o e-mail de quem precisar. Também é possível fazer o Download!</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-box-ok">
+                        <h3>Muito espaço disponível</h3>
+                        <p>Qualquer um de nossos planos disponibiliza um grande espaço de armazenamento para a sua revenda de veículos, que pode ser aumentado de acordo com a sua necessidade ao longo do tempo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="container">
+            <div class="row">
                 <div class="col-3">
                     <h1 class="logo"><a href="" title="Revenda Mais">Revenda Mais</a></h1>
                 </div>
@@ -31,7 +157,21 @@
                     <div class="menu-mobile mobile-view"><i class="fas fa-bars"></i></div>
                 </div>
             </div>
-            <div class="row sub-header">
+            <div class="nav-menu-mobile">
+                <ul class="nav-menu">
+                    <li><a href="#revendamais">Revenda Mais</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#funcionalidades">Funcionalidades</a></li>
+                    <li><a href="#planos">Planos</a></li>
+                    <li><a href="#duvidas">Dúvidas</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <header id="sub-header" class="sub-header">
+        <div class="container">
+            <div class="row">
                 <div class="col-6">
                     <ul class="nav-menu">
                         <li><a href="#revendamais">Revenda Mais</a></li>
@@ -43,66 +183,67 @@
                     </ul>
                 </div>
                 <div class="col-5 offset-1 text-right">
-                	<a href="#" class="btn btn-type-1">Receber <br />demostração gratuita</a>
-                    <a href="#" class="btn btn-type-1">Receba uma <br />ligação agora</a>
+                	<a data-fancybox data-src="#form" href="javascript:;" data-local="Header" class="btn btn-type-1 demo">Receber <br />demonstração gratuita</a>
+                    <a data-fancybox data-src="#form" href="javascript:;" data-local="Header" class="btn btn-type-1 liga">Receba uma <br />ligação agora</a>
                 </div>
             </div>
         </div>
     </header>
-    <section id="revendamais" class="hero parallax-window" data-image-src="images/hero-bg.jpg">
+    <section id="revendamais" class="hero" data-image-src="images/hero-bg.jpg">
+        <div class="parallax-window" data-enllax-ratio="0.2" style="background-image: url(images/hero-bg.jpg);"></div>
         <div class="container">
             <div class="row">
                 <div class="col-6">
-                    <h3 class="mb-2">A <strong>gestão da sua loja de veículos</strong> em um <u>sistema completo</u> e você focado no que importa:</h3>
-                    <h2 class="size-jumbo mb-5">VENDER MAIS.</h2>
+                    <h3 class="mb-2 animate">A <strong>gestão da sua loja de veículos</strong> em um <u>sistema completo</u> e você focado no que importa:</h3>
+                    <h2 class="size-jumbo mb-5 animate">VENDER MAIS.</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-5">
+                <div class="col-5 animate">
                     <p>Já ajudamos mais de <strong>1.500 lojas de veículos</strong> de todo o Brasil a <strong>aumentar em <u>média 50% dos seus lucros.</u></strong></p>
                     <p><strong>Que tal ser a sua loja a próxima a ter esses resultados?</strong></p>
                     <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="Hero" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
             </div>
             <div class="container-image">
-                <img src="images/selo.png" class="seal" />
-                <img src="images/hero-img.png" class="image" />
+                <img src="images/selo.png" class="seal animate" />
+                <img src="images/hero-img.png" class="image animate" />
             </div>
         </div>
     </section>
     <section id="beneficios">
         <div class="container">
             <div class="row">
-                <h2 class="title col-10 mx-auto text-center">Os números do Revenda Mais <u>provam</u> porque somos a melhor escolha para a sua loja de veículos.</h2>
+                <h2 class="title col-10 mx-auto text-center animate">Os números do Revenda Mais <u>provam</u> porque somos a melhor escolha para a sua loja de veículos.</h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-8 mx-auto text-center">Há <strong>14 anos no mercado</strong>, o Revenda Mais é um <strong><u>parceiro confiável e duradouro</u></strong> das lojas de veículos que querem continuar crescendo por muito tempo.</h3>
+                <h3 class="title-desc col-8 mx-auto text-center animate">Há <strong>14 anos no mercado</strong>, o Revenda Mais é um <strong><u>parceiro confiável e duradouro</u></strong> das lojas de veículos que querem continuar crescendo por muito tempo.</h3>
             </div>
             <div class="row">
                 <div class="row col-8 mx-auto text-center list-icon-text">
-                    <div class="col-6 bene-item">
+                    <div class="col-6 bene-item animate">
                         <p class="icon"><img src="images/numeros-icon-lojas-2@.png" alt="Mais de 1.500 lojas atendidas" /></p>
                         <p>Mais de 1.500 <br />lojas atendidas</p>
                     </div>
-                    <div class="col-6 bene-item">
+                    <div class="col-6 bene-item animate">
                         <p class="icon"><img src="images/numeros-icon-local-2@.png" alt="Presente em mais de 26 estados" /></p>
                         <p>Presente em mais de <br />26 estados</p>
                     </div>
-                    <div class="col-6 bene-item">
+                    <div class="col-6 bene-item animate">
                         <p class="icon"><img src="images/numeros-icon-pessoas-2@.png" alt="Mais de 4.000 pessoas utilizam nosso sistema diariamente" /></p>
                         <p>Mais de 4.000 pessoas <br />utilizam nosso sistema <br />diariamente</p>
                     </div>
-                    <div class="col-6 bene-item">
+                    <div class="col-6 bene-item animate">
                         <p class="icon"><img src="images/numeros-icon-veiculos-2@.png" alt="Mais de 50.000 veículos ativos em gestão" /></p>
                         <p>Mais de 50.000 <br />veículos ativos em gestão</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-10 mx-auto testimonial">
+                <div class="col-10 mx-auto testimonial animate">
                     <div class="image">
                         <img src="images/depoimento-img.png" />
                     </div>
@@ -119,24 +260,25 @@
             </div>
         </div>
     </section>
-    <section class="cta parallax-window desktop-view" data-image-src="images/cta-01-bg.jpg">
+    <section class="cta desktop-view">
+        <div class="parallax-window" data-enllax-ratio="0.2" style="background-image: url(images/cta-01-bg.jpg);"></div>
         <div class="container">
             <div class="row">
-                <h2 class="col-7">Se você não <strong>entrar em contato hoje</strong> com o Revenda Mais, amanhã seu negócio continuará tendo os mesmos <u>problemas de ineficiência e desorganização</u> no seu estoque e documentos.</h2>
+                <h2 class="col-7 animate">Se você não <strong>entrar em contato hoje</strong> com o Revenda Mais, amanhã seu negócio continuará tendo os mesmos <u>problemas de ineficiência e desorganização</u> no seu estoque e documentos.</h2>
             </div>
             <div class="row">
-                <h3 class="col-6">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
+                <h3 class="col-6 animate">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
                 <img src="images/selo.png" class="seal mobile-view" />
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                    <div class="btn-cta animate">
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="CTA" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="images/selo.png" class="seal desktop-view" />
+                    <img src="images/selo.png" class="seal desktop-view animate" />
                 </div>
             </div>
         </div>
@@ -144,15 +286,15 @@
     <section id="veja" class="desktop-view">
         <div class="container">
             <div class="row">
-                <h2 class="title col-12 mx-auto text-center">Veja se o cenário abaixo de alguma forma remete à sua loja de veículos <u>hoje:</u></h2>
+                <h2 class="title col-12 mx-auto text-center animate">Veja se o cenário abaixo de alguma forma remete à sua loja de veículos <u>hoje:</u></h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-8 mx-auto text-center">Como dono do negócio você acabou <strong>assumindo muitas das responsabilidades da gestão da sua loja</strong>, além de todas as outras funções que você tem que cumprir diariamente.</h3>
+                <h3 class="title-desc col-8 mx-auto text-center animate">Como dono do negócio você acabou <strong>assumindo muitas das responsabilidades da gestão da sua loja</strong>, além de todas as outras funções que você tem que cumprir diariamente.</h3>
             </div>
             <div class="row">
-                <h3 class="size-jumbo col-12 mx-auto text-center"><u>Isso acarreta problemas como:</u></h3>
+                <h3 class="size-jumbo col-12 mx-auto text-center animate"><u>Isso acarreta problemas como:</u></h3>
             </div>
-            <div class="row icon-text-inline">
+            <div class="row icon-text-inline animate">
                 <div class="col-2 image">
                     <img src="images/problemas-icon-tempo.png" alt="Falta de agilidade no seu dia a dia" />
                 </div>
@@ -161,7 +303,7 @@
                     <p>Grande parte do seu tempo é reservado para tentar organizar os infinitos papéis e a enorme quantidade de informações dos seus veículos, fazendo com que você <strong>perca o foco</strong> em <u>aumentar o giro do seu estoque com um maior volume de vendas.</u></p>
                 </div>
             </div>
-            <div class="row icon-text-inline">
+            <div class="row icon-text-inline animate">
                 <div class="col-2 image">
                     <img src="images/problemas-icon-processos.png" alt="Falta de controle dos processos do seu negócio" />
                 </div>
@@ -170,7 +312,7 @@
                     <p>Falta de controle dos processos do seu negócio As informações do seu negócio acabam ficando <u>perdidas e desencontradas</u> e você não sabe mais em que ponto está a negociação de cada veículo, <strong>enfraquecendo a imagem da sua empresa no mercado.</strong></p>
                 </div>
             </div>
-            <div class="row icon-text-inline">
+            <div class="row icon-text-inline animate">
                 <div class="col-2 image">
                     <img src="images/problemas-icon-retrabalho.png" alt="Aumento do retrabalho" />
                 </div>
@@ -179,7 +321,7 @@
                     <p>Por não ter o controle dos seus processos você acaba tendo que refazer a mesma tarefa várias vezes e acaba perdendo tempo, <u>diminuindo a sua produtividade e a dos seus funcionários.</u></p>
                 </div>
             </div>
-            <div class="row icon-text-inline">
+            <div class="row icon-text-inline animate">
                 <div class="col-2 image">
                     <img src="images/problemas-icon-info.png" alt="Informações não confiáveis" />
                 </div>
@@ -194,57 +336,57 @@
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
-                    <h2 class="text-center">Tudo isso resulta em perda de competitividade, muitas vezes <strong>assistindo seus concorrentes ganharem <u>clientes e vendas que deveriam ser suas.</u></strong></h2>
+                    <h2 class="text-center animate">Tudo isso resulta em perda de competitividade, muitas vezes <strong>assistindo seus concorrentes ganharem <u>clientes e vendas que deveriam ser suas.</u></strong></h2>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
-                <img src="images/problemas-destaque-img.png" class="mx-auto" />
+                <img src="images/problemas-destaque-img.png" class="mx-auto animate" />
             </div>
         </div>
     </section>
     <section id="hora">
         <div class="container">
             <div class="row">
-                <h2 class="title col-10 mx-auto text-center">A hora de mudar a realidade da sua loja de veículos é <strong>AGORA.</strong></h2>
+                <h2 class="title col-10 mx-auto text-center animate">A hora de mudar a realidade da sua loja de veículos é <strong>AGORA.</strong></h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-9 mx-auto text-center"><strong>O Revenda Mais é um sistema de gestão completo para lojas de veículos</strong> 100% online, desenvolvido para que você volte a ter o controle dos processos do seu negócio, melhore a produtividade dos seus funcionários e ultrapasse os seus concorrentes na conquista de novos clientes.</h3>
+                <h3 class="title-desc col-9 mx-auto text-center animate"><strong>O Revenda Mais é um sistema de gestão completo para lojas de veículos</strong> 100% online, desenvolvido para que você volte a ter o controle dos processos do seu negócio, melhore a produtividade dos seus funcionários e ultrapasse os seus concorrentes na conquista de novos clientes.</h3>
             </div> 
             <div class="row list-box-ok">
                 <div class="col-6">
-                    <div class="item-box-ok">
+                    <div class="item-box-ok animate">
                         <h3>Fácil aprendizado</h3>
                         <p>O sistema do Revenda Mais é de fácil utilização, assim rapidamente você conseguirá configurar toda a gestão da sua loja e se tiver qualquer dúvida <strong>nós estaremos de prontidão para te dar todo suporte necessário.</strong></p>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="item-box-ok">
+                    <div class="item-box-ok animate">
                         <h3>Agilidade no trabalho</h3>
                         <p>Você não precisa instalar nada nos seus computadores, nosso sistema é acessado pela internet (um sistema moderno que opera na nuvem) para que você administre todas <strong>as informações em tempo real e tenha acesso de qualquer dispositivo com internet.</strong></p>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="item-box-ok">
+                    <div class="item-box-ok animate">
                         <h3>Segurança das informações</h3>
                         <p>Você não precisa se preocupar com a perda ou roubo das suas informações, elas estarão seguras em nossos <strong>servidores protegidos no Brasil e EUA.</strong></p>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="item-box-ok">
+                    <div class="item-box-ok animate">
                         <h3>Excelente Custo-Benefício</h3>
-                        <p>Os nossos planos começam <strong>a partir de R$ 49 mensais</strong> e temos certeza que um deles se encaixará perfeitamente na realidade e tamanho da sua loja de veículos.</p>
+                        <p>Os nossos planos começam <strong>a partir de R$ 99 mensais</strong> e temos certeza que um deles se encaixará perfeitamente na realidade e tamanho da sua loja de veículos.</p>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="item-box-ok">
+                    <div class="item-box-ok animate">
                         <h3>Fim da papelada</h3>
                         <p>Com o sistema de gestão do Revenda Mais você não precisará mais ficar envolto em papéis e envelopes, com o armazenamento digital você terá <strong>muito mais segurança e espaço para as suas documentações.</strong></p>
                     </div>
                 </div>
                 <div class="col-6">
-                    <div class="item-box-ok">
+                    <div class="item-box-ok animate">
                         <h3>Um único software</h3>
                         <p>Você não precisará mais ter <strong>diversos programas para cada função do seu negócio,</strong> com o sistema do Revenda Mais todas as ferramentas necessárias para a gestão da sua loja estarão em <u>uma única plataforma.</u></p>
                     </div>
@@ -252,24 +394,25 @@
             </div>
         </div>
     </section>
-    <section class="cta parallax-window desktop-view" data-image-src="images/cta-02-bg.jpg">
+    <section class="cta desktop-view">
+        <div class="parallax-window" data-enllax-ratio="0.2" style="background-image: url(images/cta-02-bg.jpg);"></div>
         <div class="container">
             <div class="row">
-                <h2 class="col-7"><strong>Otimize o seu tempo</strong> e tenha todas as informações da sua loja de veículos organizadas e integradas em um <u>sistema de gestão completo.</u></h2>
+                <h2 class="col-7 animate"><strong>Otimize o seu tempo</strong> e tenha todas as informações da sua loja de veículos organizadas e integradas em um <u>sistema de gestão completo.</u></h2>
             </div>
             <div class="row">
-                <h3 class="col-6">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
+                <h3 class="col-6 animate">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
                 <img src="images/selo.png" class="seal mobile-view" />
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                    <div class="btn-cta animate">
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="CTA" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
                 <div class="col-6">
-                    <img src="images/selo.png" class="seal desktop-view" />
+                    <img src="images/selo.png" class="seal desktop-view animate" />
                 </div>
             </div>
         </div>
@@ -277,7 +420,7 @@
     <section id="funcionalidades">
         <div class="container">
             <div class="row">
-                <h2 class="title col-12 mx-auto text-center">Conheça as <strong>principais funcionalidades do sistema de gestão do Revenda Mais,</strong> desenvolvido <u>exclusivamente para lojas de veículos.</u></h2>
+                <h2 class="title col-12 mx-auto text-center animate">Conheça as <strong>principais funcionalidades do sistema de gestão do Revenda Mais,</strong> desenvolvido <u>exclusivamente para lojas de veículos.</u></h2>
             </div>
             <div class="row">
                 <select>
@@ -291,21 +434,21 @@
         <div id="emissao-nota-fiscal-eletronica"  class="container-fluid func-item">
             <div class="container">
                 <div class="row">
-                    <ul class="col-3">
+                    <ul class="col-3 animate">
                         <li><a href="#emissao-nota-fiscal-eletronica" class="btn active">Emissão de Nota Fiscal Eletrônica</a></li>
                         <li><a href="#integrador-anuncios-veiculos" class="btn">Integrador de Anúncios de Veículos</a></li>
                         <li><a href="#armazenamento-documentos-digitalizados" class="btn">Armazenamento de Documentos Digitalizados</a></li>
                         <li><a href="#aplicativo-mobile" class="btn">Aplicativo Mobile</a></li>
                     </ul>
-                    <div class="col-5">
+                    <div class="col-5 animate">
                         <h3>Emissão de Nota Fiscal Eletrônica</h3>
                         <p>Com poucos cliques você <strong>emite notas fiscais</strong> (com os cálculos de impostos automatizados), gera a Danfe e ainda não corre o risco de perder o arquivo XML, pois guardamos os arquivos para você com total segurança. Nosso sistema ainda valida as informações antes de enviar a NF-e para o SEFAZ.</p>
-                        <p class="more"><a href="#">Saiba Mais ></a></p>
+                        <p class="more"><a data-fancybox data-src="#emissao-nf" href="javascript:;">Saiba Mais ></a></p>
                     </div>
-                    <div class="func-image">
-                        <img src="images/funcionalidades-item-bg.jpg" />
+                    <div class="func-image animate">
+                        <img data-src="images/funcionalidades-nfe.gif" />
                     </div>
-                    <div class="col-7">
+                    <div class="col-7 animate">
                         <div class="testimonial">
                             <div class="image">
                                 <img src="images/depoimento-img.png" />
@@ -335,10 +478,10 @@
                     <div class="col-5">
                         <h3>Integrador de Anúncios de Veículos</h3>
                         <p>Integrador de Anúncios de Veículos Com apenas 1 clique você publica seu estoque de veículos nos principais portais como <strong>OLX, Webmotors, SóCarrão, iCarros, MeuCarroNovo, Mercado Livre, Facebook e mais de 20 outras opções.</strong> Assim, você centraliza seus anúncios e decide em quais portais deseja publicar, diminuindo erros e economizando tempo.</p>
-                        <p class="more"><a href="#">Saiba Mais ></a></p>
+                        <p class="more"><a data-fancybox data-src="#integrador-anuncios" href="javascript:;">Saiba Mais ></a></p>
                     </div>
                     <div class="func-image">
-                        <img src="images/funcionalidades-item-bg.jpg" />
+                        <img data-src="images/funcionalidades-integrador-anuncios-veiculos.gif" />
                     </div>
                     <div class="col-7">
                         <div class="testimonial">
@@ -370,10 +513,10 @@
                     <div class="col-5">
                         <h3>Armazenamento de Documentos Digitalizados</h3>
                         <p><strong>Arquive e controle imagens</strong> que você fizer de DUT (ou CRV), CNH, contratos, comprovantes ou armazene documentos importantes do dia a dia de qualquer negociação. Além de guardar documentos com segurança você também poderá enviar por e-mail e <strong>encontrar tudo de maneira simples e rápida.</strong></p>
-                        <p class="more"><a href="#">Saiba Mais ></a></p>
+                        <p class="more"><a data-fancybox data-src="#armazenamento-documentos" href="javascript:;">Saiba Mais ></a></p>
                     </div>
                     <div class="func-image">
-                        <img src="images/funcionalidades-item-bg.jpg" />
+                        <img data-src="images/funcionalidades-armazenamento-doc-digitalizados.gif" />
                     </div>
                     <div class="col-7">
                         <div class="testimonial">
@@ -406,10 +549,10 @@
                         <h3>Aplicativo Mobile</h3>
                         <p>Pelo nosso <strong>aplicativo exclusivo</strong> você vai controlar os principais módulos do sistema como Estoque, Clientes, Atendimento e Avaliação. Você também conseguirá cadastrar veículos, tirar as fotos e enviar para o sistema. Tudo pelo celular, sem computador, de qualquer lugar.</p>
                         <p class="more">Se você quer ver o nosso sistema de gestão funcionando no seu celular, seja IOS ou Android, <strong>baixe gratuitamente agora:</strong></p>
-                        <p><a href="#" target="_blank"><img src="images/link-android.png" /></a> <a href="#" target="_blank"><img src="images/link-ios.png" /></a></p>
+                        <p><a href="https://play.google.com/store/apps/details?id=br.com.revendamais&hl=pt_BR" target="_blank"><img src="images/link-android.png" /></a> <a href="https://itunes.apple.com/br/app/revenda-mais/id1035451957?mt=8" target="_blank"><img src="images/link-ios.png" /></a></p>
                     </div>
                     <div class="func-image">
-                        <img src="images/funcionalidades-item-bg-mobile.gif" />
+                        <img data-src="images/funcionalidades-app-mobile.gif" />
                     </div>
                     <div class="col-7">
                         <div class="testimonial">
@@ -430,30 +573,31 @@
             </div>
         </div>
     </section>
-    <section class="cta parallax-window" data-image-src="images/cta-03-bg.jpg">
+    <section class="cta">
+        <div class="parallax-window" data-enllax-ratio="0.2" style="background-image: url(images/cta-03-bg.jpg);"></div>
         <div class="container">
             <div class="row">
-                <h2 class="col-7">Um de nossos consultores estará <strong>sempre pronto para te ajudar</strong> a solucionar as suas dúvidas.</h2>
-                <h2 class="col-7">Esse é o grande <strong>diferencial do Revenda Mais:</strong> suporte técnico desde a venda até a <u>implantação total do sistema</u> na sua loja de veículos.</h2>
+                <h2 class="col-7 animate">Um de nossos consultores estará <strong>sempre pronto para te ajudar</strong> a solucionar as suas dúvidas.</h2>
+                <h2 class="col-7 animate">Esse é o grande <strong>diferencial do Revenda Mais:</strong> suporte técnico desde a venda até a <u>implantação total do sistema</u> na sua loja de veículos.</h2>
             </div>
             <div class="row">
-                <h3 class="col-6">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
+                <h3 class="col-6 animate">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
                 <img src="images/selo.png" class="seal mobile-view" />
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Quero receber uma ligação</a>
+                    <div class="btn-cta animate">
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="CTA" class="btn btn-type-2 liga">Quero receber uma ligação</a>
                         <small>Um representante irá te ligar - absolutamente sem compromisso - para te falar mais sobre o Revenda Mais</small>
                     </div>
-                    <p class="circle-blue">ou</p>
-                    <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                    <p class="circle-blue animate">ou</p>
+                    <div class="btn-cta animate">
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="CTA" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
                 <div class="col-6 align-middle">
-                    <img src="images/selo.png" class="seal desktop-view" />
+                    <img src="images/selo.png" class="seal desktop-view animate" />
                 </div>
             </div>
         </div>
@@ -461,12 +605,12 @@
     <section id="planos">
         <div class="container">
             <div class="row">
-                <h2 class="title col-10 mx-auto text-center">Temos um <u>plano ideal</u> para cada loja de veículos e suas necessidades. <strong>Veja nossos planos abaixo:</strong></h2>
+                <h2 class="title col-10 mx-auto text-center animate">Temos um <u>plano ideal</u> para cada loja de veículos e suas necessidades. <strong>Veja nossos planos abaixo:</strong></h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-9 mx-auto text-center">Os nossos representantes estão à disposição para te ajudar na <strong>escolha do plano ideal para a realidade da sua loja de veículos.</strong> Mas você pode ir se familiarizando com eles na tabela abaixo:</h3>
+                <h3 class="title-desc col-9 mx-auto text-center animate">Os nossos representantes estão à disposição para te ajudar na <strong>escolha do plano ideal para a realidade da sua loja de veículos.</strong> Mas você pode ir se familiarizando com eles na tabela abaixo:</h3>
             </div>
-            <div class="row plans owl-carousel owl-theme">
+            <div class="row plans owl-carousel owl-theme animate">
                 <div class="plan-item item">
                     <h3>Básico</h3>
                     <ul>
@@ -475,9 +619,9 @@
                         <li>2GB Documentos</li>
                         <li>40 Veículos</li>
                     </ul>
-                    <div class="price">R$ <strong>259</strong> <span>mensais</span></div>
+                    <div class="price">R$ <strong>299</strong> <span>mensais</span></div>
                     <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="Plano Básico" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
@@ -490,9 +634,9 @@
                         <li>2GB Documentos</li>
                         <li>40 Veículos</li>
                     </ul>
-                    <div class="price">R$ <strong>299</strong> <span>mensais</span></div>
+                    <div class="price">R$ <strong>399</strong> <span>mensais</span></div>
                     <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="Plano Bronze" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
@@ -504,37 +648,37 @@
                         <li>2GB Documentos</li>
                         <li>40 Veículos</li>
                     </ul>
-                    <div class="price">R$ <strong>259</strong> <span>mensais</span></div>
+                    <div class="price">R$ <strong>499</strong> <span>mensais</span></div>
                     <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="Plano Prata" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
             </div>
             <div class="row plans">
-                <div class="col-12 plan-item">
+                <div class="col-12 plan-item animate">
                     <h3>Você precisa de um plano <strong>apenas para emissão de NF-e?</strong></h3>
                     <div class="row no-gutters">
                         <div class="col-4 offset-2">
-                            <p>Por <strong>apenas R$ 49,00 mensais</strong> você poderá realizar a emissão de Notas Fiscais Eletrônicas.</p>
+                            <p>Por <strong>apenas R$ 99,00 mensais</strong> você poderá realizar a emissão de Notas Fiscais Eletrônicas.</p>
                             <div class="row">
                                 <ul class="col">
                                     <li>2 Usuários</li>
                                     <li>2 CNPJ</li>
                                 </ul>
-                                <div class="col price align-self-center">R$ <strong>49</strong> <span>mensais</span></div>
+                                <div class="col price align-self-center">R$ <strong>99</strong> <span>mensais</span></div>
                             </div>
                         </div>
                         <div class="col-4 offset-1 align-self-center">
                             <div class="btn-cta">
-                                <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                                <a data-fancybox data-src="#form" href="javascript:;" data-local="Plano Nota Fiscal" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                                 <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row plan-item notice">
+            <div class="row plan-item notice animate">
                 <div class="col-1 offset-2 text-right">
                     <img src="images/plano-icon.png" />
                 </div>
@@ -544,45 +688,46 @@
             </div>
         </div>
     </section>
-    <section id="alem" class="cta parallax-window" data-image-src="images/cta-04-bg.jpg">
+    <section id="alem" class="cta">
+        <div class="parallax-window" data-enllax-ratio="0.2" style="background-image: url(images/cta-04-bg.jpg);"></div>
         <div class="container">
             <div class="row">
-                <h2 class="title col-12 mx-auto text-center"><strong>Além de um sistema de gestão completo para a sua loja de veículos, que tal expandir os seus negócios com um site moderno e responsivo?</strong></h2>
+                <h2 class="title col-12 mx-auto text-center animate"><strong>Além de um sistema de gestão completo para a sua loja de veículos, que tal expandir os seus negócios com um site moderno e responsivo?</strong></h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-10 mx-auto text-center">Como a <strong>necessidade de ter um site para ampliar os seus negócios</strong> é constante em nossos clientes, nós do Revenda Mais também desenvolvemos um produto exclusivo de <strong>criação de sites para lojas de veículos,</strong> totalmente responsivos - se adaptam tanto em telas de <u>desktop, tablet ou celular</u> - e otimizados para aparecer no Google.</h3>
+                <h3 class="title-desc col-10 mx-auto text-center animate">Como a <strong>necessidade de ter um site para ampliar os seus negócios</strong> é constante em nossos clientes, nós do Revenda Mais também desenvolvemos um produto exclusivo de <strong>criação de sites para lojas de veículos,</strong> totalmente responsivos - se adaptam tanto em telas de <u>desktop, tablet ou celular</u> - e otimizados para aparecer no Google.</h3>
             </div>
             <div class="row">
                 <div class="col-5">
-                    <div class="site-item">
+                    <div class="site-item animate">
                         <h2>Aberto 24 horas</h2>
                         <p>Com o site desenvolvido pelo Revenda Mais a sua loja de veículos estará disponível 24 horas por dia para realizar negócios.</p>
                     </div>
-                    <div class="site-item">
+                    <div class="site-item animate">
                         <h2>Financiamento Online</h2>
                         <p>Uma ferramenta que permite aos clientes simular o valor de financiamento do veículo em tempo real, de acordo com coeficientes pré-determinados.</p>
                     </div>
-                    <div class="site-item">
+                    <div class="site-item animate">
                         <h2>Filtros Laterais</h2>
                         <p>Estrutura semelhante à de grandes portais, facilitando a busca de veículos de acordo com o critério de busca.</p>
                     </div>
-                    <div class="site-item">
+                    <div class="site-item animate">
                         <h2>Sistema Inteligente de Buscas</h2>
                         <p>Sistema de busca por relevância de palavras-chave. Simples termos (exemplo: "1.0", "1.0 flex", "2.0 automático"), encontram anúncios.</p>
                     </div>
-                    <div class="site-item">
+                    <div class="site-item animate">
                         <h2>Múltiplas Lojas</h2>
                         <p>A plataforma suporta a inclusão de várias lojas e/ou filiais, permitindo a seleção no filtro lateral.</p>
                     </div>
                 </div>
-                <div class="col-7 align-self-center desktop-view">
+                <div class="col-7 align-self-center desktop-view animate">
                     <img src="images/cta-04-img.png" class="image" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Quero receber uma ligação</a>
+                    <div class="btn-cta animate">
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="CTA" class="btn btn-type-2 liga">Quero receber uma ligação</a>
                         <small>Um representante irá te ligar - absolutamente sem compromisso - para te falar mais sobre o Revenda Mais</small>
                     </div>
                 </div>
@@ -592,9 +737,9 @@
     <section id="motivos">
         <div class="container">
             <div class="row">
-                <h2 class="title col-8 mx-auto text-center">5 motivos incontestáveis para você entrar em contato com o Revenda Mais ainda hoje:</h2>
+                <h2 class="title col-8 mx-auto text-center animate">5 motivos incontestáveis para você entrar em contato com o Revenda Mais ainda hoje:</h2>
             </div>
-            <div class="row circle-text-inline">
+            <div class="row circle-text-inline animate">
                 <div class="col-1 offset-1">
                     <h3>1</h3>
                 </div>
@@ -602,7 +747,7 @@
                     <p>O Revenda Mais está a 14 anos no mercado e é uma referência no segmento de veículos pela constante inovação e atendimento de qualidade.</p>
                 </div>
             </div>
-            <div class="row circle-text-inline">
+            <div class="row circle-text-inline animate">
                 <div class="col-1 offset-1">
                     <h3>2</h3>
                 </div>
@@ -610,7 +755,7 @@
                     <p>Sistema de gestão 100% online, desenvolvido exclusivamente para facilitar o dia a dia de lojas de veículos.</p>
                 </div>
             </div>
-            <div class="row circle-text-inline">
+            <div class="row circle-text-inline animate">
                 <div class="col-1 offset-1">
                     <h3>3</h3>
                 </div>
@@ -618,7 +763,7 @@
                     <p>Suporte rápido e eficiente, através de telefone ou chat, o Revenda Mais te auxiliará em todas as etapas do processo.</p>
                 </div>
             </div>
-            <div class="row circle-text-inline">
+            <div class="row circle-text-inline animate">
                 <div class="col-1 offset-1">
                     <h3>4</h3>
                 </div>
@@ -626,7 +771,7 @@
                     <p>Sistema de fácil utilização, que pode ser acessado de qualquer lugar, inclusive pelo celular por meio do aplicativo Revenda Mais.</p>
                 </div>
             </div>
-            <div class="row circle-text-inline">
+            <div class="row circle-text-inline animate">
                 <div class="col-1 offset-1">
                     <h3>5</h3>
                 </div>
@@ -639,83 +784,91 @@
     <section id="duvidas">
         <div class="container">
             <div class="row">
-                <h2 class="title col-12 mx-auto text-center">Ainda em dúvida?</h2>
+                <h2 class="title col-12 mx-auto text-center animate">Ainda em dúvida?</h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-8 mx-auto text-center">Nossos representantes terão o maior prazer em respondê-las, mas para facilitar sua vida, listamos aqui algumas das perguntas mais comuns que recebemos.</h3>
+                <h3 class="title-desc col-8 mx-auto text-center animate">Nossos representantes terão o maior prazer em respondê-las, mas para facilitar sua vida, listamos aqui algumas das perguntas mais comuns que recebemos.</h3>
             </div>
             <div class="row">
-                <div class="col-10 offset-1 accordion">
+                <div class="col-10 offset-1 accordion animate">
                     <h3>Posso acessar o sistema de qualquer computador?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>Sim, você poderá acessar de qualquer plataforma (desktop, mobile ou tablet). Sabemos e entendemos os problemas e as dificuldades das lojas em trajetória de crescimento e expansão e que o CONTROLE neste estágio é fundamental, porém sem perder a agilidade e a flexibilidade.</p>
                     </div>
+                    
                     <h3>Minhas informações estaráo seguras usando o Revenda Mais?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>Sim, utilizamos servidores protegidos no Brasil e EUA que impedem perda, roubo ou acesso indevido. Através de políticas de segurança e backups, monitoramos logs de acesso para garantir estabilidade ao sistema.</p>
                     </div>
+                    
                     <h3>O que acontece com as minhas informações se eu cancelar o sistema?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>A informação é sua, a qualquer momento você pode exportar suas informações para planilhas do Excel! Diferente de outros sistemas do mercado que ficam com suas informações como forma de prender você como cliente, na Revenda Mais, você tem fácil acesso a todos os seus dados.</p>
                     </div>
-                    <h3>Como é feito o pagamento mensal?</h3>
-                    <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-                    </div>
+                    
                     <h3>Como saber se vocês não vão sumir do mercado ou parar de dar suporte no sistema assim como aconteceu com outro sistema que eu usava?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>Atuamos neste mercado de veículos e internet desde o ano 2000 através do site Meu Carro Novo. Viramos referência neste segmento por nosso atendimento e inovação. Mesmo assim convidamos você a ligar para qualquer um de nossos clientes para ter certeza que estará escolhendo uma ótima empresa.</p>
                     </div>
+                    
+                    <h3>Como é feito o pagamento mensal?</h3>
+                    <div>
+                        <p>O pagamento mensal é realizado através de Boleto Bancário. Disponível a partir do dia 01 do mês, a impressão pode ser realizada na própria plataforma. Este pagamento validará o seu acesso até o próximo vencimento.</p>
+                    </div>
+                    
                     <h3>Meus funcionários não podem acessar todas as informações. Tenho como bloquear este acesso?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>Sim, cada usuário terá acesso somente as funções que você liberar. O sistema ainda guarda os LOGs de todas as atividades de cada usuário, facilitando saber quem fez, o dia que fez e de onde fez.</p>
                     </div>
+                    
                     <h3>Posso customizar os relatórios que desejar?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>São mais de 20 relatórios disponíveis e todos os meses lançamos novos relatórios sem custo adicional. Porém, caso você precise de algum relatório específico poderemos desenvolver e liberar para todos os usuários do Revenda Mais.</p>
                     </div>
+                    
                     <h3>O sistema faz um fechamento mensal com o lucro da minha loja?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>Entendemos que cada loja utiliza um formato específico de fazer o fechamento mensal. Você terá acesso a vários formatos de informações, mas não um relatório mensal único que apura seus lucros ou prejuízos. Temos vários outros relatórios que ajudam cada loja a fazer o fechamento mensal de acordo com as suas necessidades particulares. Alguns exemplos de relatórios são: DRE Competência, DRE Caixa, Faturamento Bruto, Despesas da Loja e Comissão de Vendedores.</p>
                     </div>
+                    
                     <h3>Posso emitir notas fiscais de qualquer computador?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>Sim, você poderá emitir notas de qualquer computador e a qualquer momento. Suas notas (arquivos.XML), também, estarão armazenadas de forma segura e acessível a qualquer momento.</p>
                     </div>
+                    
                     <h3>Posso fazer a integração do meu estoque com um portal da minha região?</h3>
                     <div>
-                        <p>Mauris mauris ante, blandit et, ultrices a, susceros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+                        <p>Sim, desde que o portal na sua região permita a integração com nosso sistema. Possuímos integração com diversos portais e em diferentes formatos/tecnologias: arquivos, TXT, Web Service, XML, etc.
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="cta" data-image-src="images/cta-05-bg.jpg" data-parallax-bg-image="images/cta-05-bg.jpg" style="background-image: url(images/cta-05-bg.jpg); background-attachment: fixed;">
+    <section class="cta">
+        <div class="parallax-window" data-enllax-ratio="0.2" style="background-image: url(images/cta-05-bg.jpg);"></div>
         <div class="container">
             <div class="row">
-                <h2 class="col-7">Para continuar a crescer, sua loja de veículos precisa se modernizar e contar com um <strong>sistema de gestão completo.</strong></h2>
-                <h2 class="col-7">Com o sistema de gestão do Revenda Mais você age antes <u>dos seus concorrentes e não fica para trás.</u></h2>
+                <h2 class="col-7 animate">Para continuar a crescer, sua loja de veículos precisa se modernizar e contar com um <strong>sistema de gestão completo.</strong></h2>
+                <h2 class="col-7 animate">Com o sistema de gestão do Revenda Mais você age antes <u>dos seus concorrentes e não fica para trás.</u></h2>
             </div>
             <div class="row">
-                <h3 class="col-6">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
+                <h3 class="col-6 animate">Ligue para o Revenda Mais (41) 3342-5757 ou deixe que <strong>nós entramos em contato com você em até 20 minutos.</strong></h3>
                 <img src="images/selo.png" class="seal mobile-view" />
             </div>
             <div class="row">
                 <div class="col-6">
-                    <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Quero receber uma ligação</a>
+                    <div class="btn-cta animate">
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="CTA" class="btn btn-type-2 liga">Quero receber uma ligação</a>
                         <small>Um representante irá te ligar - absolutamente sem compromisso - para te falar mais sobre o Revenda Mais</small>
                     </div>
-                    <p class="circle-blue">ou</p>
-                    <div class="btn-cta">
-                        <a href="#" class="btn btn-type-2">Receber demostração gratuita</a>
+                    <p class="circle-blue animate">ou</p>
+                    <div class="btn-cta animate">
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="CTA" class="btn btn-type-2 demo">Receber demonstração gratuita</a>
                         <small>Receba uma demonstração completa do nosso sistema, absolutamente sem compromisso.</small>
                     </div>
                 </div>
                 <div class="col-6 align-middle">
-                    <img src="images/selo.png" class="seal desktop-view" />
+                    <img src="images/selo.png" class="seal desktop-view animate" />
                 </div>
             </div>
         </div>
@@ -723,14 +876,14 @@
     <section id="duvidas">
         <div class="container">
             <div class="row">
-                <h2 class="title col-8 mx-auto text-center">Entenda melhor o sistema de gestão para lojas de veículos do Revenda Mais.
+                <h2 class="title col-8 mx-auto text-center animate">Entenda melhor o sistema de gestão para lojas de veículos do Revenda Mais.
 </h2>
             </div>
             <div class="row">
-                <h3 class="title-desc col-6 mx-auto text-center">Assista o nosso fundador Robson Marchetti explicando os <strong>diferenciais exclusivos do Revenda Mais.</strong></h3>
+                <h3 class="title-desc col-6 mx-auto text-center animate">Assista o nosso fundador Robson Marchetti explicando os <strong>diferenciais exclusivos do Revenda Mais.</strong></h3>
             </div>
             <div class="row">
-                <div class="col-8 mx-auto">
+                <div class="col-8 mx-auto animate">
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/j8wUmY4faEg"></iframe>
                     </div>
@@ -741,7 +894,7 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 animate">
                     <h2 class="logo"><a href="#" title="Revenda Mais">Revenda Mais</a></h2>
                     <h2>Contato</h2>
                     <p>Telefone: (41) 3342-5757</p>
@@ -756,7 +909,7 @@
                         <li><a href="/blog">Blog</a></li>
                     </ul>
                 </div>
-                <div class="col-5 offset-1">
+                <div class="col-5 offset-1 animate">
                     <h2>Siga o Revenda Mais nas Redes</h2>
                     <ul class="nav-social">
                         <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -766,98 +919,13 @@
                         <li><a href="#"><i class="fab fa-wordpress"></i></a></li>
                     </ul>
                     <div>
-                        <a href="#" class="btn btn-type-1">Receber demostração gratuita</a>
-                        <a href="#" class="btn btn-type-1">Receba uma ligação agora</a>
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="Footer" class="btn btn-type-1 demo">Receber demonstração gratuita</a>
+                        <a data-fancybox data-src="#form" href="javascript:;" data-local="Footer" class="btn btn-type-1 liga">Receba uma ligação agora</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 </body>
-<script>
-    
-    $('.menu-mobile').click(function(){
-        $('header .sub-header .col-6').toggleClass('active');
-    });
-    $('header .sub-header .col-6 a').click(function(){
-        $('header .sub-header .col-6').toggleClass('active');
-    });
-    
-    
-    
-    
-        $('a[href*="#"]:not([href="#"])').click(function() {
-            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-                if (target.length && $(window).width() > 768) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top
-                    }, 900, "swing");
-                    return false;
-                } if (target.length && $(window).width() <= 768){
-                    $('html, body').animate({
-                        scrollTop: target.offset().top - 68
-                    }, 900, "swing");
-                    return false;
-                }
-            }
-        });
-
-    // JavaScript
-    window.sr = ScrollReveal();
-    sr.reveal('#tudo-isso .container');
-    sr.reveal('[class*=col]');
-    sr.reveal('.func-image');
-
-
-    $('.parallax-window').parallax();
-    /*$('.parallax-window').parallaxBackground({
-        parallaxBgSize: 'auto',
-        parallaxSpeed: 0.2,
-        parallaxBgPosition: 'center top'
-    });*/
-    
-    $('.accordion').find('h3').click(function(){
-        //Expand or collapse this panel
-        $(this).next().slideToggle('slow');
-        
-        
-        $(this).toggleClass('active');
-        $('.accordion').find('h3').not($(this)).removeClass('active');
-
-        //Hide the other panels
-        $(".accordion div").not($(this).next()).slideUp('slow');
-    });
-    
-    
-    $('.owl-carousel').owlCarousel({
-        startPosition:1,
-        nav:false,
-        responsive:{
-            0:{
-                items:1,
-                margin:10
-            },
-            600:{
-                items:2,
-                margin:10
-            },
-            1000:{
-                margin:0,
-                items:3
-            }
-        }
-    });
-    
-    $('.container-fluid.func-item').fadeOut()
-    $('#emissao-nota-fiscal-eletronica').fadeIn()
-    
-    $('select').change(function() {
-        var idselecao = $(this).val();
-        $('.container-fluid.func-item').fadeOut()
-        $('#' + idselecao).fadeIn()
-    });
-
-</script>
+<script src="js/main.js"></script>
 </html>
